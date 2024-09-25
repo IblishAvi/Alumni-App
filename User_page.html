@@ -1,0 +1,144 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User_login</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+
+
+  <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header text-white" style="background-color: rgb(18, 18, 103);">
+        <h5 class="modal-title" id="exampleModalLabel"> View Information</h5>
+        <button type="button" class="btn-close text-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <b>
+          Name: <br>
+          Roll: <br>
+          Course:<br>
+          Dept.: <br>
+          Experience: <br>
+          Description: <br>
+          Contact: <br>
+          Project: <br>
+          Batch: <br>
+
+        </b>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- header -->
+  <div class="row container-fluid p-2 text-white sticky-top" style="background-color: rgb(18, 18, 30);">
+    <div class="col-4">
+      <img src="{% static 'image/fm.png' %}" alt="" height="100" width="400">
+    </div>
+    <div class="col-4 ">
+
+  </div>
+  <!-- profile -->
+    <div class="container-sm shadow p-2 mb-5 bg-white rounded" style="padding: 100px; margin: 60px 60px 60px ;">
+      <div class="row">
+        <div class="col-md-4 ">
+            <img src="{% static 'image/295128.png' %}" class="rounded float-start " alt="..." width="250px">
+            <p class="d-flex justify-content-center" style="font-size: 40px; margin-top: 50px;">
+              Welcome<br>
+            USER NAME
+            </p>
+        </div>
+
+        <div class="col-sm-6" style=" border-left: 6px solid  rgb(180, 18, 80);height: 300px;">
+          <div class="vl" style=""></div>
+          <div class="" style="color: rgb(18, 18, 70); font-size: 20px;">
+
+             <h3 class="text-center">Roll:2308869</h3>
+             <b>
+               Category: <br>
+              Course:<br>
+              Dept.: <br>
+              Experience: <br>
+              Project: <br>
+              Passout: <br>
+
+             Exprerience:<br> Email:<br> Mob:
+             </b>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  <hr>
+
+      <h1 class="text-center" style="font-size: 50px; color: rgb(180, 18, 103);"> Student Records</h1>
+
+     <div  class="container-fluid shadow-sm p-3 mb-5 bg-white rounded ">
+      <div class="table-responsive ">
+        <div class="row" style="padding: 20px;">
+           <div class="col-md-6">
+            <b>List of Students:</b>
+           </div>
+          <form class=" col-6" action="">
+            <input class="form-control justify-content-end" type="search" placeholder="Search" aria-label="Search">
+          </form>
+        </div>
+        <table class="table table-hover">
+          <thead class=" table-secondary ">
+            <tr><th scope="col">Sr_no</th>
+              <th scope="col">Fname</th>
+              <th scope="col">Email</th>
+              <th scope="col">Course</th>
+              <th scope="col">Current_Profession.</th>
+              <th scope="col">Experience</th>
+              <th scope="col">Company</th>
+              <th scope="col">Designation</th>
+              <th scope="col">Phone</th>
+                <th scope="col">Batch</th>
+                <th scope="col">Linkedin</th>
+                <th scope="col">Action</th>
+          </tr>
+          </thead>
+          <tbody>
+          {% for alumni in student %}
+            <tr><td>{{alumni.id }}</td>
+              <td>{{alumni.Fname }}</td>
+              <td>{{ alumni.Email }}</td>
+              <td>{{alumni.Course }}</td>
+              <td>{{alumni.Current_Profession }}</td>
+              <td>{{alumni.Experience}}</td>
+              <td>{{alumni.Company}}</td>
+              <td>{{alumni.Designation}}</td>
+              <td>{{alumni.Phone}}</td>
+               <td>{{alumni.Batch}}</td>
+              <td>{{alumni.Linkedin}}</td>
+                <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                View
+              </button>
+                </td>
+            </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <footer >
+      <div class="container-fluid fixed-bottom bg-dark text-white text-center" style="padding: 10px;">
+        Copyright 2023 - &copy; All rights reserved | Central University of Haryana
+      </div>
+    </footer>
+
+  </div>
+</body>
+</html>
